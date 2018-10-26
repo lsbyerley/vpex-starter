@@ -4,11 +4,12 @@
   "description": "Vue, Parcel, Express starter",
   "main": "main.js",
   "scripts": {
-    "client": "parcel index.html",
-    "server": "nodemon ./server/app.js --watch ./server",
-    "start": "concurrently --kill-others 'npm run server' 'npm run client'",
-    "dev": "parcel watch index.html",
-    "build": "parcel build index.html"
+    "client:dev": "parcel index.html",
+    "server:dev": "nodemon ./server/app.js --watch ./server",
+    "dev": "concurrently --kill-others 'npm run client:dev' 'npm run server:dev' || true",
+    "client:prod": "parcel build index.html",
+    "server:prod": "node ./server/app.js",
+    "build": "npm run client:prod & npm run server:prod || true"
   },
   "author": "lsbyerley@gmail.com",
   "license": "ISC",

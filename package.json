@@ -9,14 +9,19 @@
     "dev": "concurrently --kill-others 'npm run client:dev' 'npm run server:dev' || true",
     "client:prod": "parcel build index.html",
     "server:prod": "node ./server/app.js",
-    "build": "npm run client:prod & npm run server:prod || true"
+    "build": "npm run client:prod",
+    "serve": "npm run server:prod",
+    "prebuild": "rm -rf dist"
   },
   "author": "lsbyerley@gmail.com",
   "license": "ISC",
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
+    "autoprefixer": "^9.4.4",
     "axios": "^0.18.0",
     "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mustard-ui": "0.0.8",
     "nodemon": "^1.18.7",
@@ -27,7 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@vue/component-compiler-utils": "^2.3.0",
     "concurrently": "^4.0.1",
-    "parcel-bundler": "^1.10.3",
+    "parcel-bundler": "^1.11.0",
     "sass": "^1.14.3",
     "vue-hot-reload-api": "^2.3.1",
     "vue-template-compiler": "^2.5.17"

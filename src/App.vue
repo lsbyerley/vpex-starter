@@ -13,6 +13,7 @@
 
 <script>
 import axios from 'axios'
+const apiHost = process.env.API_HOST || ''
 
 export default {
   name: 'App',
@@ -31,9 +32,8 @@ export default {
   },
   methods: {
     async getData() {
-      const host = process.env.API_HOST || ''
       try {
-        const res = await axios.get(`${host}/api/test`)
+        const res = await axios.get(`${apiHost}/api/test`)
         this.apiTest = res.data.message
       } catch(e) {
         console.log('Error in the api')

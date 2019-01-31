@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const compression = require("compression");
 const path = require('path');
-const isDev = process.env.NODE_ENV === 'dev'
+const isDev = process.env.NODE_ENV === 'development'
 
 const app = express();
 const host = process.env.HOST || "127.0.0.1";

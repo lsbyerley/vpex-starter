@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      message: 'Vue, Parcel, Express Starter',
+      message: 'VPEX: Vue, Parcel, Express Starter',
       apiTest: ''
     };
   },

@@ -6,7 +6,7 @@
   "scripts": {
     "client:dev": "parcel index.html",
     "server:dev": "nodemon ./server/app.js --watch ./server",
-    "dev": "concurrently --kill-others 'npm run client:dev' 'npm run server:dev' || true",
+    "dev": "npm-run-all -p client:dev server:dev",
     "client:prod": "parcel build index.html",
     "server:prod": "node ./server/app.js",
     "build": "npm run client:prod",
@@ -31,7 +31,7 @@
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@vue/component-compiler-utils": "^3.0.0",
-    "concurrently": "^4.1.0",
+    "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.20.3",
     "vue-hot-reload-api": "^2.3.3",

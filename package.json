@@ -9,8 +9,7 @@
     "dev": "npm-run-all -p client:dev server:dev",
     "client:prod": "parcel build index.html",
     "server:prod": "node ./server/app.js",
-    "build": "npm run client:prod",
-    "serve": "npm run server:prod",
+    "build": "npm-run-all client:prod server:prod",
     "prebuild": "rm -rf dist"
   },
   "author": "lsbyerley@gmail.com",
@@ -34,6 +33,7 @@
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.20.3",
+    "tailwindcss": "^1.0.2",
     "vue-hot-reload-api": "^2.3.3",
     "vue-template-compiler": "^2.6.10"
   }

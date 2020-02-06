@@ -7,12 +7,17 @@
           <h2 class="text-4xl font-bold mb-2 text-white">
             {{ message }}
           </h2>
-          <h3 class="text-2xl mb-8 text-gray-200">
-            {{ apiTest }}
-          </h3>
-          <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
-            TailwindCSS
-          </button>
+
+          <div v-if="!apiError">
+            <button class="bg-green-600 text-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              {{ apiMessage }}
+            </button>
+          </div>
+          <div v-else>
+            <button class="bg-red-600 text-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+              {{ apiMessage }}
+            </button>
+          </div>
         </div>
       </div>
       <section class="container mx-auto px-6 p-10">
@@ -61,17 +66,19 @@ export default {
   data() {
     return {
       message: 'Vue, Parcel, Express Starter',
-      apiTest: ''
+      apiMessage: '',
+      apiError: false
     };
   },
   methods: {
     async getData() {
       try {
         const res = await axios.get(`${apiHost}/api/test`)
-        this.apiTest = res.data.message
+        this.apiMessage = res.data.message
+        this.apiError = false
       } catch(e) {
         console.log('Error in the api')
-        this.apiTest = 'api is broke!'
+        this.apiError = true
       }
     }
   }
